@@ -27,20 +27,21 @@ jobs:
         with:
           node-version: '20'  # or whichever Node version you are using
 
-      - name: navigate to the folder
-        run: cd portfolio
-
-      # Step 3: Install dependencies
+      # Step 3: Install dependencies in the 'portfolio' directory
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd portfolio
+          npm install
 
-      # Step 4: Build the React app
+      # Step 4: Build the React app in the 'portfolio' directory
       - name: Build the app
-        run: npm run build
+        run: |
+          cd portfolio
+          npm run build
 
       # (Optional) Step 5: Upload the build folder as an artifact
       - name: Upload production-ready build
         uses: actions/upload-artifact@v3
         with:
           name: build
-          path: build/
+          path: portfolio/build/
