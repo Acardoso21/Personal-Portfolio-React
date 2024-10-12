@@ -1,0 +1,43 @@
+name: Deploy to GitHub Pages
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ "master" ]  # Trigger on push to master
+  pull_request:
+    branches: [ "master" ]  # Trigger on pull requests to master
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # The environment for the job
+
+    steps:
+      # Checks out the repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Sets up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  # Specify the Node.js version you are using
+          cache: 'npm'  # Cache npm dependencies
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          cd portfolio  # Navigate to the project directory
+          npm install   # Install dependencies
+
+      # Build the app
+      - name: Build the app
+        run: |
+          cd portfolio  # Navigate to the project directory
+          npm run build --if-present  # Build the app
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Token for authentication
+          publish_dir: ./portfolio/build  # Directory to publish
