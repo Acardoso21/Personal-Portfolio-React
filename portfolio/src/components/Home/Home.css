@@ -1,0 +1,45 @@
+/* src/components/Home/Home.css */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('NYC_eastriver.jpg'); /* Add your image path here */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .hero-content {
+    position: relative;
+    top: -5%; /* Move the content up by 30% */
+    max-width: 600px;
+    text-align: center;
+}
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.5rem;
+  }
+  
+  .cta-button {
+    background-color: #ff7f50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+    display: inline-block;
+    margin-top: 500px;
+  }
+  
+  .cta-button:hover {
+    background-color: #ff6347;
+  }
