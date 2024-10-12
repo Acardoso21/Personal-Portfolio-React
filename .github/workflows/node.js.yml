@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -21,13 +20,30 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: cd portfolio
-    - run: npm install
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+
+    # Install dependencies, run build, and run tests in the 'portfolio' directory
+    - name: Install dependencies
+      run: |
+        cd portfolio
+        npm install
+
+    - name: Clean install of node dependencies
+      run: |
+        cd portfolio
+        npm ci
+
+    - name: Build the app
+      run: |
+        cd portfolio
+        npm run build --if-present
+
+    - name: Run tests
+      run: |
+        cd portfolio
+        npm test
