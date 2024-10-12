@@ -26,7 +26,7 @@ jobs:
 
         with:
           node-version: '20'  # Specify the Node.js version you are using
-          cache: 'npm'  # Cache npm dependencies
+          # cache: 'npm'  # Cache npm dependencies
 
       # Check for lock file existence
       - name: Check for package-lock.json
