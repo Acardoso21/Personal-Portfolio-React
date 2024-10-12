@@ -9,9 +9,9 @@ function Projects() {
       link: "https://github.com/your-username/project-1"
     },
     {
-      name: "Project 2",
-      description: "Another project using Node.js and Express.",
-      link: "https://github.com/your-username/project-2"
+      name: "TicTacToe Python",
+      description: "One of my very first projects in python was creating a game of tictactoe with a cli based GUI where the user would play verses the computer.",
+      link: "https://github.com/Acardoso21/TicTacToe/blob/main/tiktactoe_V2.py"
     },
     // Add more projects as needed
   ];
