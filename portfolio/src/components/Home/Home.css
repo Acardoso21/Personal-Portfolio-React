@@ -16,6 +16,7 @@
     top: -5%; /* Move the content up by 30% */
     max-width: 600px;
     text-align: center;
+    margin-top: 50px;
 }
   
   h1 {
@@ -37,7 +38,7 @@
     font-size: 1.2rem;
     transition: background-color 0.3s;
     display: inline-block;
-    margin-top: 500px;
+    margin-top: 400px;
   }
   
   .cta-button:hover {
