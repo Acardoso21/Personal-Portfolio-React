@@ -16,9 +16,14 @@ jobs:
       # Checks out the repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      - name: Go to portfolio
+        run: | 
+          cd portfolio
+          
       # Sets up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v4
+
         with:
           node-version: '20'  # Specify the Node.js version you are using
           cache: 'npm'  # Cache npm dependencies
