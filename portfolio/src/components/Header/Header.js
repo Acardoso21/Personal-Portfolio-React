@@ -1,14 +1,16 @@
 import React from 'react';
-import './Header.css'; // You can create this CSS file for styling the header.
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import './Header.css'; // Custom CSS for styling the header
 
 function Header() {
   return (
     <header className="header">
       <nav>
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/projects">Projects</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
         </ul>
       </nav>
     </header>
