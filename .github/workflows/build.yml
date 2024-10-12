@@ -4,10 +4,10 @@ name: Build React App
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 # Define the jobs to run
 jobs:
@@ -26,6 +26,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'  # or whichever Node version you are using
+
+      - name: navigate to the folder
+        run: cd portfolio
 
       # Step 3: Install dependencies
       - name: Install dependencies
