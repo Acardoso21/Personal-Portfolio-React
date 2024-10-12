@@ -4,10 +4,10 @@ name: Build React App
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 # Define the jobs to run
 jobs:
