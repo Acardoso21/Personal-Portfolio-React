@@ -30,17 +30,17 @@ jobs:
           cd portfolio
           npm install
 
-      # Step 4: Run ESLint on 'src' directory
+      # Step 4: Run ESLint with npx
       - name: Run ESLint
         run: |
           cd portfolio
-          eslint 'src/**/*.{js}'  # Lint all JS and JSX files in the src folder
+          npx eslint 'src/**/*.{js,jsx}'  # Use npx to ensure it runs the locally installed ESLint
 
-      # Step 5: Run Prettier (optional) on 'src' directory
+      # Step 5: Run Prettier (optional) with npx
       - name: Run Prettier
         run: |
           cd portfolio
-          prettier --write 'src/**/*.{js}'  # Format all JS and JSX files in the src folder
+          npx prettier --write 'src/**/*.{js,jsx}'  # Use npx to run Prettier locally
 
       # Step 6: Run tests
       - name: Run tests
