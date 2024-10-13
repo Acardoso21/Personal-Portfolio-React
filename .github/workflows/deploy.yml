@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy to GitHub Pages
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,13 +30,32 @@ jobs:
           cd portfolio
           npm install
 
-      # Step 4: Build the app
+      # Step 4: Run ESLint with npx
+      - name: Run ESLint
+        run: |
+          cd portfolio
+          npx eslint 'src/**/*.{js,jsx}'  # Use npx to run the locally installed ESLint
+
+      # Step 5: Run Prettier (optional) with npx
+      - name: Run Prettier
+        run: |
+          cd portfolio
+          npx prettier --write 'src/**/*.{js,jsx}'  # Use npx to run Prettier locally
+
+      # Step 6: Run tests (allow to fail)
+      - name: Run tests
+        run: |
+          cd portfolio
+          npm test
+        continue-on-error: true  # Allow the pipeline to continue even if tests fail
+
+      # Step 7: Build the app
       - name: Build the app
         run: |
           cd portfolio
           npm run build
 
-      # Step 5: Deploy to GitHub Pages
+      # Step 8: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
