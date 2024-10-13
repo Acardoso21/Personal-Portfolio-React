@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1e81f241.css",
+    "main.js": "/static/js/main.f52290d4.js",
+    "static/js/453.69f3745b.chunk.js": "/static/js/453.69f3745b.chunk.js",
+    "static/media/NYC_eastriver.jpg": "/static/media/NYC_eastriver.39358b280333bdfd0b3b.jpg",
+    "index.html": "/index.html",
+    "main.1e81f241.css.map": "/static/css/main.1e81f241.css.map",
+    "main.f52290d4.js.map": "/static/js/main.f52290d4.js.map",
+    "453.69f3745b.chunk.js.map": "/static/js/453.69f3745b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1e81f241.css",
+    "static/js/main.f52290d4.js"
+  ]
+}
