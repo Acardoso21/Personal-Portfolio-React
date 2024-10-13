@@ -3,13 +3,13 @@ name: Development Pipeline
 on:
   push:
     branches-ignore:
-      - master  # Excludes 'master' branch to prevent interference with the production pipeline
+      - master  # Excludes 'master' branch to prevent interference with production
   pull_request:
     branches-ignore:
-      - master  # Also ignores pull requests to 'master'
+      - master  # Also ignores pull requests targeting 'master'
 
 jobs:
-  build-and-test:
+  lint-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,6 +22,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
+          cache: 'npm'
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -29,20 +30,20 @@ jobs:
           cd portfolio
           npm install
 
-      # Step 4: Run linting
-      - name: Run linting
+      # Step 4: Run ESLint
+      - name: Run ESLint
         run: |
           cd portfolio
           npm run lint
 
-      # Step 5: Run tests
+      # Step 5: Run Prettier (optional)
+      - name: Run Prettier
+        run: |
+          cd portfolio
+          npm run format
+
+      # Step 6: Run tests
       - name: Run tests
         run: |
           cd portfolio
           npm test
-
-      # Step 6: Build the app (Optional)
-      - name: Build the app
-        run: |
-          cd portfolio
-          npm run build
