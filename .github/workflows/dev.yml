@@ -1,0 +1,49 @@
+name: Development Pipeline
+
+on:
+  push:
+    branches-ignore:
+      - master  # Excludes 'master' branch to prevent interference with the production pipeline
+  pull_request:
+    branches-ignore:
+      - master  # Also ignores pull requests to 'master'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          cd portfolio
+          npm install
+
+      # Step 4: Run linting
+      - name: Run linting
+        run: |
+          cd portfolio
+          npm run lint
+
+      # Step 5: Run tests
+      - name: Run tests
+        run: |
+          cd portfolio
+          npm test
+
+      # Step 6: Build the app (Optional)
+      - name: Build the app
+        run: |
+          cd portfolio
+          npm run build

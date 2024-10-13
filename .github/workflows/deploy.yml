@@ -1,55 +1,44 @@
 name: Deploy to GitHub Pages
-# Controls when the workflow will run
+
 on:
   push:
-    branches: [ "master" ]  # Trigger on push to master
-  pull_request:
-    branches: [ "master" ]  # Trigger on pull requests to master
-  workflow_dispatch:  # Allows manual triggering of the workflow
+    branches:
+      - master  # Triggers when there's a push to 'master'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # The environment for the job
+    runs-on: ubuntu-latest
 
     steps:
-      # Checks out the repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Go to portfolio
-        run: | 
-          cd portfolio
-          
-      # Sets up Node.js environment
+      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
-
         with:
-          node-version: '20'  # Specify the Node.js version you are using
-          # cache: 'npm'  # Cache npm dependencies
+          node-version: '20.x'
 
-      # Check for lock file existence
-      - name: Check for package-lock.json
-        run: |
-          if [ ! -f portfolio/package-lock.json ]; then
-            echo "package-lock.json not found in portfolio directory!"
-            exit 1
-          fi
-
-      # Install dependencies
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: |
-          cd portfolio  # Navigate to the project directory
-          npm install   # Install dependencies
+          cd portfolio
+          npm install
 
-      # Build the app
+      # Step 4: Build the app
       - name: Build the app
         run: |
-          cd portfolio  # Navigate to the project directory
-          npm run build --if-present  # Build the app
+          cd portfolio
+          npm run build
 
-      # Deploy to GitHub Pages
+      # Step 5: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Token for authentication
-          publish_dir: ./portfolio/build  # Directory to publish
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./portfolio/build
