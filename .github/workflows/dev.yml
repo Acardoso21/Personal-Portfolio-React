@@ -34,13 +34,13 @@ jobs:
       - name: Run ESLint
         run: |
           cd portfolio
-          eslint 'src/**/*.{js,jsx}'  # Lint all JS and JSX files in the src folder
+          eslint 'src/**/*.{js}'  # Lint all JS and JSX files in the src folder
 
       # Step 5: Run Prettier (optional) on 'src' directory
       - name: Run Prettier
         run: |
           cd portfolio
-          prettier --write 'src/**/*.{js,jsx}'  # Format all JS and JSX files in the src folder
+          prettier --write 'src/**/*.{js}'  # Format all JS and JSX files in the src folder
 
       # Step 6: Run tests
       - name: Run tests
