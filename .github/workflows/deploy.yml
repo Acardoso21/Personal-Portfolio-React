@@ -33,7 +33,6 @@ jobs:
       # Step 3: Install dependencies
       - name: Install dependencies
         run: |
-          cd portfolio
           npm install
 
       # Step 4: Run ESLint with npx
@@ -45,27 +44,24 @@ jobs:
       # Step 5: Run Prettier with npx
       - name: Run Prettier
         run: |
-          cd portfolio
           npx prettier --write 'src/**/*.{js,jsx}'
 
       # Step 6: Run tests (allow to fail)
       - name: Run tests
         run: |
-          cd portfolio
           npm test
         continue-on-error: true
 
       # Step 7: Build the app
       - name: Build the app
         run: |
-          cd portfolio
           npm run build
 
       # Step 8: Upload build artifact
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./portfolio/build
+          path: ./build
 
   # Deployment job
   deploy:

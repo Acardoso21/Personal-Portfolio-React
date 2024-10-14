@@ -27,30 +27,25 @@ jobs:
       # Step 3: Install dependencies
       - name: Install dependencies
         run: |
-          cd portfolio
           npm install
 
       # Step 4: Run ESLint with npx
       - name: Run ESLint
         run: |
-          cd portfolio
           npx eslint 'src/**/*.{js,jsx}'  # Use npx to ensure it runs the locally installed ESLint
 
       # Step 5: Run Prettier (optional) with npx
       - name: Run Prettier
         run: |
-          cd portfolio
           npx prettier --write 'src/**/*.{js,jsx}'  # Use npx to run Prettier locally
 
       # Step 6: Run tests (allow to fail)
       - name: Run tests
         run: |
-          cd portfolio
           npm test
         continue-on-error: true  # This allows the pipeline to continue even if the test step fails
 
     # Step  6: Build the app (Optional)
       - name: Build the app
         run: |
-            cd portfolio
             npm run build
