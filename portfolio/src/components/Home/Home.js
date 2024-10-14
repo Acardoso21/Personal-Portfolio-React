@@ -24,14 +24,14 @@ function Home() {
         </div>
       </section>
 
-      {/* Projects Section */}
       <section id="projectsSection" className="projects-section">
         <h2 data-aos="fade-up">Featured Projects</h2>
         <div className="projects-container">
           <div className="featured-project" data-aos="zoom-in-up">
-            <h3>Major Project</h3>
+            <h3>Major Project</h3> {/* Title moved to top */}
             <p>This project showcases my work on a full-stack application using React and Node.js. The application has real-time data updates, user authentication, and more.</p>
           </div>
+
           <div className="minor-projects">
             <div className="minor-project" data-aos="fade-right">
               <h4>Minor Project 1</h4>
