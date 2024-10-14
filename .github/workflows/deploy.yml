@@ -38,7 +38,6 @@ jobs:
       # Step 4: Run ESLint with npx
       - name: Run ESLint
         run: |
-          cd portfolio
           npx eslint 'src/**/*.{js,jsx}'
 
       # Step 5: Run Prettier with npx
