@@ -84,21 +84,36 @@ p {
   background-color: #ff6347;
   transform: translateY(-5px); /* Adds a small lift effect */
 }
+
+
 /* Projects Section */
 .projects-section {
-  padding: 60px 20px;
-  background-color: #f5f5f5; /* Light background color */
-  text-align: center;
+  padding: 60px 20px; /* Restore the padding but keep it balanced */
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Ensure content starts at the top */
+  align-items: center; /* Center content horizontally */
+  margin-top: 0px;
 }
 
+/* Align the title */
+.projects-section h2 {
+  margin: 0; /* Remove margin from the heading */
+  padding-bottom: 20px; /* Add some padding below the heading */
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center; /* Center the heading */
+}
+
+/* Projects Container */
 .projects-container {
   display: flex;
-  justify-content: space-between; /* Make the elements fill the available space */
-  align-items: stretch; /* Ensure all project cards are the same height */
-  flex-wrap: wrap;
-  gap: 20px; /* Uniform gap between the projects */
-  /* max-width: 1000px; */
-  align-self: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 90%; /* 90% width of the page */
+  margin: 0 auto; /* Center the container */
+  align-items: flex-start; /* Align the featured and minor projects at the top */
 }
 
 /* Featured Project Styling */
@@ -108,49 +123,33 @@ p {
   background-position: center;
   padding: 20px;
   border-radius: 10px;
-  width: 100%; /* Take the full width */
+  width: 60%; /* Take up 60% of the available space */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  align-items: flex-start;
+  flex-direction: column;
   gap: 10px;
+  height: auto;
   transition: transform 0.3s;
 }
 
-.featured-project:hover {
-  transform: translateY(-10px); /* Adds a small lift effect on hover */
-}
-
-/* Featured Project Title on Top */
-.featured-project h3 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #333;
-  align-self: flex-start; /* Ensure the title stays at the top */
-}
-
-.featured-project p {
-  font-size: 1.2rem;
-  color: #666;
-  line-height: 1.6;
-  flex-grow: 1; /* Take up available space */
-}
-
-/* Minor Project Cards */
+/* Minor Project Container */
 .minor-projects {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%; /* Make it full width */
-  gap: 20px;
+  flex-direction: column;
+  gap: 20px; /* Space between the minor projects */
+  width: 35%; /* Take 35% of the available space */
+  justify-content: flex-start; /* Align items at the top */
 }
 
+
+
+/* Minor Project Styling */
 .minor-project {
   background-color: #fff;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex-grow: 1; /* Make each card take equal space */
+  flex-grow: 1; /* Make each minor project take equal space */
   transition: transform 0.3s, background-color 0.3s;
 }
 
@@ -159,6 +158,27 @@ p {
   background-color: #f0f0f0; /* Change background on hover */
 }
 
+/* Equal Height for Featured and Minor Projects */
+.projects-container {
+  align-items: stretch; /* Make all children have the same height */
+}
+
+/* Featured Project Title on Top */
+.featured-project h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #333;
+  align-self: flex-start;
+}
+
+.featured-project p {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* Minor Project Title */
 .minor-project h4 {
   font-size: 1.5rem;
   margin-bottom: 10px;
@@ -169,6 +189,19 @@ p {
   color: #666;
   line-height: 1.6;
 }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .projects-container {
+    flex-direction: column;
+  }
+
+  .featured-project, .minor-projects {
+    width: 100%; /* Full width on smaller screens */
+  }
+}
+
+
 
 /* About Me Section */
 .about-me-section {
