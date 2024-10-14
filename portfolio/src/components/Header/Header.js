@@ -18,7 +18,7 @@ const Header = () => {
             <ScrollLink to="projectsSection" smooth={true} duration={500}>
               Projects
             </ScrollLink>
-            <ScrollLink to="contactSection" smooth={true} duration={500}>
+            <ScrollLink to="aboutMESection" smooth={true} duration={500}>
               Contact
             </ScrollLink>
           </>
