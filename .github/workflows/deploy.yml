@@ -1,0 +1,80 @@
+name: Build and Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # Triggers when there's a push to 'master'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          npm install
+
+      # Step 4: Run ESLint with npx
+      - name: Run ESLint
+        run: |
+          npx eslint 'src/**/*.{js,jsx}'
+        continue-on-error: true
+
+
+      # Step 5: Run Prettier with npx
+      - name: Run Prettier
+        run: |
+          npx prettier --write 'src/**/*.{js,jsx}'
+        continue-on-error: true
+        
+
+      # Step 6: Run tests (allow to fail)
+      - name: Run tests
+        run: |
+          npm test
+        continue-on-error: true
+
+      # Step 7: Build the app
+      - name: Build the app
+        run: |
+          npm run build
+
+      # Step 8: Upload build artifact
+      - name: Upload build artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build-and-deploy
+    steps:
+      # Step 9: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
