@@ -1,4 +1,5 @@
 {
+  "homepage": "https://your-username.github.io/repository-name",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -18,7 +19,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint 'portfolio/**/*.{js,jsx}'",
     "format": "prettier --write 'portfolio/**/*.{js,jsx}'", 
-    "lint:fix": "eslint --fix 'portfolio/**/*.{js,jsx}'"
+    "lint:fix": "eslint --fix 'portfolio/**/*.{js,jsx}'",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
