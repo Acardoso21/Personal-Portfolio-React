@@ -8,7 +8,7 @@ import Contact from './components/Contact/Contact';
 
 function App() {
   return (
-    <Router basename="/acardoso21.github.io">
+    <Router >
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -1,11 +1,6 @@
 {
-  "short_name": "MyPortfolio",
-  "name": "Andre's Portfolio",
-  "description": "A description of my web app",
-  "start_url": "/acardoso21.github.io/",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff",
+  "short_name": "Portfolio",
+  "name": "Andre Cardoso's Portfolio",
   "icons": [
     {
       "src": "favicon.ico",
@@ -22,5 +17,9 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ]
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }
