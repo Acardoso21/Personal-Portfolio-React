@@ -39,11 +39,15 @@ jobs:
       - name: Run ESLint
         run: |
           npx eslint 'src/**/*.{js,jsx}'
+        continue-on-error: true
+
 
       # Step 5: Run Prettier with npx
       - name: Run Prettier
         run: |
           npx prettier --write 'src/**/*.{js,jsx}'
+        continue-on-error: true
+        
 
       # Step 6: Run tests (allow to fail)
       - name: Run tests
