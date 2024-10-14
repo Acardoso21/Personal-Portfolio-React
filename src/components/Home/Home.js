@@ -28,18 +28,19 @@ function Home() {
         <h2 data-aos="fade-up">Featured Projects</h2>
         <div className="projects-container">
           <div className="featured-project" data-aos="zoom-in-up">
-            <h3>Major Project</h3> {/* Title moved to top */}
+            <h3>Twitter Wordle bot</h3> {/* Title moved to top */}
             <p>This project showcases my work on a full-stack application using React and Node.js. The application has real-time data updates, user authentication, and more.</p>
           </div>
 
           <div className="minor-projects">
             <div className="minor-project" data-aos="fade-right">
-              <h4>Minor Project 1</h4>
+              <h4>Voron3d.Wiki</h4>
               <p>This is a simple, responsive portfolio site built with HTML, CSS, and JavaScript.</p>
             </div>
             <div className="minor-project" data-aos="fade-left">
-              <h4>Minor Project 2</h4>
-              <p>An open-source Python library that I developed to automate file handling tasks.</p>
+              <h4>TicTacToe</h4>
+              <p>One of my very first personal projects, ever attempted, during the covid19 pandemic I decided to attempt to program a game of 
+                tictactoe where the user would play agaisns the Computer which would be my program essentally. </p>
             </div>
           </div>
         </div>
