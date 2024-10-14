@@ -1,2 +1,37 @@
-./.vscode
-./node_modules
+# Ignore the Visual Studio Code directory
+.vscode/
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore the build directory created by create-react-app
+build/
+
+# Ignore any environment variables
+.env
+.env.local
+
+# Logs
+logs
+*.log
+
+# Optional npm cache directory
+.npm
+
+# Ignore coverage reports
+coverage/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore parcel-bundler cache (if using it)
+.cache
+
+# Ignore ESLint cache (if using it)
+.eslintcache
+
+# Ignore any debug or diagnostic files
+debug.log
+yarn-debug.log*
+npm-debug.log*
