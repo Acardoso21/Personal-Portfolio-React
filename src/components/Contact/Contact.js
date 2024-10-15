@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Contact.css';
-// import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -13,29 +13,34 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // For now, we'll just simulate form submission
-    setSubmitted(true);
-    console.log(formData);
+
+    fetch('https://formspree.io/f/mzzbbajl', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (response.ok) {
+          setSubmitted(true);
+        } else {
+          setError('There was an issue with your submission, please try again.');
+        }
+      })
+      .catch(() => setError('There was an error submitting the form.'));
   };
 
   return (
     <section id="contact" className="contact">
-      <h2>Contact Me</h2>
-      <p>
-        I’d love to hear from you! Whether it's a project or a question, feel free to reach out:
-      </p>
-      {/* <div className="contact-links">
-        <a href="mailto:contactme@andrecardoso.me" className="contact-link">
-          <FaEnvelope /> Email
-        </a>
-        <a href="https://www.linkedin.com/in/andrecardoso" target="_blank" rel="noopener noreferrer" className="contact-link">
-          <FaLinkedin /> LinkedIn
-        </a>
-        <a href="https://github.com/andrecardoso" target="_blank" rel="noopener noreferrer" className="contact-link">
-          <FaGithub /> GitHub
-        </a>
-      </div> */}
-      
+      <div className="text-banner">
+        <div className='text-card'>
+          <h2>Contact Me</h2>
+          <p>
+            I’d love to hear from you! Whether it's a project or a question, feel free to reach out:
+          </p>
+        </div>
+      </div>
       {!submitted ? (
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-group">
@@ -75,6 +80,8 @@ function Contact() {
       ) : (
         <p className="thank-you-message">Thank you for reaching out! I will get back to you soon.</p>
       )}
+
+      {error && <p className="error-message">{error}</p>}
     </section>
   );
 }
