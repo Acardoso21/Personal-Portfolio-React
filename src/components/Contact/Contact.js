@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaCheckCircle } from 'react-icons/fa';
 import './Contact.css';
 
 function Contact() {
@@ -78,7 +79,12 @@ function Contact() {
           <button type="submit" className="submit-btn">Send Message</button>
         </form>
       ) : (
-        <p className="thank-you-message">Thank you for reaching out! I will get back to you soon.</p>
+        <div className='thank-you-card'>
+        <p className="thank-you-message">
+          <FaCheckCircle className="success-icon" /> Thank you for reaching out!<br />
+          I will get back to you soon.
+        </p>
+      </div>
       )}
 
       {error && <p className="error-message">{error}</p>}
