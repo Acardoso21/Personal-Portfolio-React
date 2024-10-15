@@ -60,9 +60,6 @@ const Header = () => {
             <ScrollLink to="contactSection1" smooth={true} duration={500}>
               Contact Form
             </ScrollLink>
-            <ScrollLink to="contactSection2" smooth={true} duration={500}>
-              Location
-            </ScrollLink>
           </>
         );
       default:
@@ -84,8 +81,8 @@ const Header = () => {
 
       <div className="header-right">
         {/* Permanent links in smaller font and settings button */}
-        <RouterLink to="/about" className="small-link">About</RouterLink>
-        <RouterLink to="/projects" className="small-link">Projects</RouterLink>
+        {/* <RouterLink to="/about" className="small-link">CV</RouterLink> */}
+        {/* <RouterLink to="/projects" className="small-link">Projects</RouterLink> */}
         <RouterLink to="/contact" className="small-link">Contact</RouterLink>
         <button className="settings-button" onClick={() => alert('Settings will be programmed later')}>
           ⚙️
