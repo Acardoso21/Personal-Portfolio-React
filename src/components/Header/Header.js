@@ -15,11 +15,14 @@ const Header = () => {
             <ScrollLink to="heroSection" smooth={true} duration={500}>
               Home
             </ScrollLink>
+            <ScrollLink to="aboutMESection" smooth={true} duration={500}>
+              About Me
+            </ScrollLink>
             <ScrollLink to="projectsSection" smooth={true} duration={500}>
               Projects
             </ScrollLink>
-            <ScrollLink to="aboutMESection" smooth={true} duration={500}>
-              Contact
+            <ScrollLink to="experienceSection" smooth={true} duration={500}>
+            Experience
             </ScrollLink>
           </>
         );
