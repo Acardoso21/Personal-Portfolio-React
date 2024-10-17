@@ -1,6 +1,7 @@
+/* General header styles */
 .header {
   background-color: #333;
-  padding: 1rem 2rem;
+  padding: 1rem 4%;
   position: fixed;
   width: 100%;
   top: 0;
@@ -10,6 +11,8 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  overflow: hidden; /* Fixes potential overflow issues */
 }
 
 .header-left {
@@ -27,18 +30,31 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding-right: 2rem;
 }
 
 .header a {
   color: white;
   text-decoration: none;
-  font-size: 1.2rem;
-  margin: 0 1rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin: 0 1vw;
 }
 
 .header a:hover {
   color: #ff7f50;
   text-decoration: underline;
+}
+
+/* Hide hamburger by default */
+.hamburger {
+  display: none;
+}
+
+/* Remove potential white space on the right */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 .small-link {
@@ -58,43 +74,87 @@
   color: #ff7f50;
 }
 
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  margin-left: auto;
-}
 
-/* Responsive styles for mobile devices */
+/* Responsive styles */
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
+  .header-left {
+    flex: 1;
   }
 
-  .header-center,
+  .header-center {
+    display: none; /* Hide center links */
+  }
+
   .header-right {
-    display: none;
-  }
-
-  .header.open .header-center,
-  .header.open .header-right {
-    display: flex;
-    flex-direction: column;
+    justify-content: flex-end;
     width: 100%;
-    margin-top: 10px;
-    text-align: center;
-  }
-
-  .header a {
-    font-size: 1.5rem;
-    margin: 10px 0;
   }
 
   .hamburger {
     display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
   }
+
+/* Hide dropdown by default */
+.dropdown {
+  display: block;
+  flex-direction: column;
+  background-color: #333;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  left: 0;
+  z-index: 1001;
+}
+
+.dropdown a {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.dropdown a:hover {
+  background-color: #444;
+}
+
+@media (max-width: 768px) {
+  /* Show hamburger on mobile */
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Hide the main center navigation links on mobile */
+  .header-center {
+    display: none;
+  }
+
+  /* Show dropdown when menu is open */
+  .dropdown {
+    display: none;
+  }
+}
+
+/* Larger screens: Make sure hamburger is hidden */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+
+  .header-center {
+    display: flex; /* Restore the center links on larger screens */
+  }
+
+  .dropdown {
+    display: flex; /* Ensure dropdown doesn't appear on large screens */
+  }
+}
 }

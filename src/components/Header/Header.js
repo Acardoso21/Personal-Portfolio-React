@@ -7,7 +7,6 @@ const Header = () => {
   const location = useLocation();
   const [isMenuOpen, setMenuOpen] = useState(false);
 
-  // Helper function to render scroll links based on the page
   const renderScrollLinks = (page) => {
     switch (page) {
       case '/':
@@ -38,7 +37,8 @@ const Header = () => {
         <RouterLink to="/">Home</RouterLink>
       </div>
 
-      <div className="header-center">
+      {/* Show scroll links for larger screens */}
+      <div className={`header-center ${isMenuOpen ? 'active' : ''}`}>
         {renderScrollLinks(location.pathname)}
       </div>
 
@@ -53,6 +53,14 @@ const Header = () => {
       <button className="hamburger" onClick={() => setMenuOpen(!isMenuOpen)}>
         ☰
       </button>
+
+      {/* Conditionally render links for mobile */}
+      {isMenuOpen && (
+        <div className="dropdown">
+          {renderScrollLinks(location.pathname)}
+          <RouterLink to="/contact" className="small-link" onClick={() => setMenuOpen(false)}>Contact</RouterLink>
+        </div>
+      )}
     </nav>
   );
 };
