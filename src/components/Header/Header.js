@@ -12,16 +12,13 @@ const Header = () => {
       case '/':
         return (
           <>
-            <ScrollLink to="heroSection" smooth={true} duration={500} onClick={() => setMenuOpen(false)}>
-              Home
-            </ScrollLink>
-            <ScrollLink to="aboutMESection" smooth={true} duration={500} onClick={() => setMenuOpen(false)}>
+            <ScrollLink to="aboutMESection" smooth={true} duration={1} onClick={() => setMenuOpen(false)}>
               About Me
             </ScrollLink>
-            <ScrollLink to="projectsSection" smooth={true} duration={500} onClick={() => setMenuOpen(false)}>
+            <ScrollLink to="projectsSection" smooth={true} duration={1} onClick={() => setMenuOpen(false)}>
               Projects
             </ScrollLink>
-            <ScrollLink to="experienceSection" smooth={true} duration={500} onClick={() => setMenuOpen(false)}>
+            <ScrollLink to="experienceSection" smooth={true} duration={1} onClick={() => setMenuOpen(false)}>
               Experience
             </ScrollLink>
           </>
