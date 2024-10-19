@@ -6,7 +6,7 @@
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 1000; /* Ensure the header stays on top */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,8 +74,7 @@ body, html {
   color: #ff7f50;
 }
 
-
-/* Responsive styles */
+/* Mobile-specific styles */
 @media (max-width: 768px) {
   .header-left {
     flex: 1;
@@ -99,47 +98,31 @@ body, html {
     cursor: pointer;
   }
 
-/* Hide dropdown by default */
-.dropdown {
-  display: block;
-  flex-direction: column;
-  background-color: #333;
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  left: 0;
-  z-index: 1001;
-}
-
-.dropdown a {
-  padding: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-}
-
-.dropdown a:hover {
-  background-color: #444;
-}
-
-@media (max-width: 768px) {
-  /* Show hamburger on mobile */
-  .hamburger {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
-  }
-
-  /* Hide the main center navigation links on mobile */
-  .header-center {
-    display: none;
-  }
-
-  /* Show dropdown when menu is open */
+  /* Initially hide the dropdown */
   .dropdown {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    z-index: 9999; /* Make sure it's on top of all content */
+  }
+
+  /* Show dropdown when the menu is open */
+  .header.open .dropdown {
+    display: flex;
+  }
+
+  .dropdown a {
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+
+  .dropdown a:hover {
+    background-color: #444;
   }
 }
 
@@ -154,7 +137,6 @@ body, html {
   }
 
   .dropdown {
-    display: flex; /* Ensure dropdown doesn't appear on large screens */
+    display: none; /* Ensure dropdown doesn't appear on large screens */
   }
-}
 }

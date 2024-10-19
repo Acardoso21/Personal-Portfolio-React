@@ -35,7 +35,7 @@ const Header = () => {
       </div>
 
       {/* Show scroll links for larger screens */}
-      <div className={`header-center ${isMenuOpen ? 'active' : ''}`}>
+      <div className={`header-center`}>
         {renderScrollLinks(location.pathname)}
       </div>
 
