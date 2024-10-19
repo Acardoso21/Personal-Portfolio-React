@@ -8,6 +8,7 @@ function Contact() {
   const [error, setError] = useState(null);
 
   // Use the environment variable for the Formspree endpoint
+
   const formspreeEndpoint = process.env.FORMSPREEIO;
 
   const handleInputChange = (e) => {
@@ -35,7 +36,7 @@ function Contact() {
       })
       .catch(() => setError('There was an error submitting the form.'));
   };
-
+  
   return (
     <section id="contact" className="contact">
       <div className="text-banner">
