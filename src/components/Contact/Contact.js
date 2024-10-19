@@ -12,6 +12,7 @@ function Contact() {
   // Debugging log
   console.log('Formspree Endpoint:', formspreeEndpoint);
 
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
