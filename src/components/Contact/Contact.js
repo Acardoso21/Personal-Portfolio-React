@@ -6,22 +6,12 @@ function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(null);
-
-  // Use the environment variable for the Formspree endpoint
-  const formspreeEndpoint = env.FORMSPREEIO;
-  // Debugging log
-  console.log('Formspree Endpoint:', formspreeEndpoint);
-
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(formspreeEndpoint, {
+    fetch('https://formspree.io/f/mzzbbajl', {
+
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
