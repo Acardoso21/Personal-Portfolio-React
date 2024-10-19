@@ -8,7 +8,9 @@ function Contact() {
   const [error, setError] = useState(null);
 
   // Use the environment variable for the Formspree endpoint
-  const formspreeEndpoint = process.env.REACT_APP_FORMSPREE_ENDPOINT;
+  const formspreeEndpoint = process.env.FORMSPREEIO;
+  // Debugging log
+  console.log('Formspree Endpoint:', formspreeEndpoint);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -18,7 +20,6 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Use the formspreeEndpoint from environment variables
     fetch(formspreeEndpoint, {
       method: 'POST',
       headers: {
@@ -35,7 +36,7 @@ function Contact() {
       })
       .catch(() => setError('There was an error submitting the form.'));
   };
-  
+
   return (
     <section id="contact" className="contact">
       <div className="text-banner">
