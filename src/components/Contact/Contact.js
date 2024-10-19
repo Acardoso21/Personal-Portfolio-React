@@ -9,7 +9,7 @@ function Contact() {
 
   // Use the environment variable for the Formspree endpoint
 
-  const formspreeEndpoint = process.env.FORMSPREEIO;
+  const formspreeEndpoint = env.FORMSPREEIO;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
