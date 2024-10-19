@@ -7,6 +7,9 @@ function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(null);
 
+  // Use the environment variable for the Formspree endpoint
+  const formspreeEndpoint = process.env.FORMSPREEIO;
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -15,7 +18,8 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch('https://formspree.io/f/mzzbbajl', {
+    // Use the formspreeEndpoint from environment variables
+    fetch(formspreeEndpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -80,11 +84,11 @@ function Contact() {
         </form>
       ) : (
         <div className='thank-you-card'>
-        <p className="thank-you-message">
-          <FaCheckCircle className="success-icon" /> Thank you for reaching out!<br />
-          I will get back to you soon.
-        </p>
-      </div>
+          <p className="thank-you-message">
+            <FaCheckCircle className="success-icon" /> Thank you for reaching out!<br />
+            I will get back to you soon.
+          </p>
+        </div>
       )}
 
       {error && <p className="error-message">{error}</p>}
