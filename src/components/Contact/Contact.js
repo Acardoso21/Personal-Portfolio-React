@@ -90,7 +90,7 @@ function Contact() {
         </div>
       )}
 
-      {error && <div>
+      {error && <div className="error-card">
         <p className="error-message">
           Sorry, there seems to be a problem with this form, Please try emailing.
         </p> 
