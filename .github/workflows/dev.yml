@@ -49,5 +49,22 @@ jobs:
       - name: Build the app
         run: |
             npm run build
+            - name: Merge master into active branch
+      - name: check if main got updated
+        run: |
+          # Ensure we're on the active branch
+          git checkout ${{ github.ref_name }}
+      
+          # Fetch the latest changes from master
+          git fetch origin master
+      
+          # Merge master into the active branch, preferring changes in the active branch
+          git merge -X ours origin/master -m "Merge master into ${{ github.ref_name }} (favoring active branch)"
+      
+          # Push the merge result back to the active branch
+          git push origin ${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
 
             
