@@ -8,10 +8,7 @@ function Contact() {
   const [error, setError] = useState(null);
 
   // Use the environment variable for the Formspree endpoint
-  const formspreeEndpoint = process.env.FORMSPREEIO;
-  // Debugging log
-  console.log('Formspree Endpoint:', formspreeEndpoint);
-
+  const formspreeEndpoint = process.env.REACT_APP_FORMSPREEIO;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
