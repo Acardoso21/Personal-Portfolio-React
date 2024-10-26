@@ -50,25 +50,25 @@ jobs:
         continue-on-error: true  # This allows the pipeline to continue even if the test step fails
 
         
-    # Step  6: Build the app (Optional)
-      - name: Build the app
-        run: |
-            npm run build
-      - name: Merge master into active branch
-        run: |
-          # Ensure we're on the active branch
-          git checkout ${{ github.ref_name }}
+    # # Step  6: Build the app (Optional)
+    #   - name: Build the app
+    #     run: |
+    #         npm run build
+    #   - name: Merge master into active branch
+    #     run: |
+    #       # Ensure we're on the active branch
+    #       git checkout ${{ github.ref_name }}
       
-          # Fetch the latest changes from master
-          git fetch origin master
+    #       # Fetch the latest changes from master
+    #       git fetch origin master
       
-          # Merge master into the active branch, preferring changes in the active branch
-          git merge -X ours origin/master -m "Merge master into ${{ github.ref_name }} (favoring active branch)"
+    #       # Merge master into the active branch, preferring changes in the active branch
+    #       git merge -X ours origin/master -m "Merge master into ${{ github.ref_name }} (favoring active branch)"
       
-          # Push the merge result back to the active branch
-          git push origin ${{ github.ref_name }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #       # Push the merge result back to the active branch
+    #       git push origin ${{ github.ref_name }}
+    #     env:
+    #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
 
             
