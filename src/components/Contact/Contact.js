@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaCheckCircle } from 'react-icons/fa';
+import { FaCheckCircle,FaEnvelope } from 'react-icons/fa';
 import './Contact.css';
 
 function Contact() {
@@ -90,7 +90,15 @@ function Contact() {
         </div>
       )}
 
-      {error && <p className="error-message">{error}</p>}
+      {error && <div>
+        <p className="error-message">
+          Sorry, there seems to be a problem with this form, Please try emailing.
+        </p> 
+        <button href="mailto:contactme@andrecardoso.me" className="contact-link">
+            <FaEnvelope size={24} />
+        </button>
+          </div>}
+
     </section>
   );
 }
