@@ -8,7 +8,7 @@ function Contact() {
   const [error, setError] = useState(null);
 
   // Use the environment variable for the Formspree endpoint
-  const formspreeEndpoint = env.FORMSPREEIO;
+  const formspreeEndpoint = process.env.FORMSPREEIO;
   // Debugging log
   console.log('Formspree Endpoint:', formspreeEndpoint);
 
