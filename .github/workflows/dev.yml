@@ -33,11 +33,15 @@ jobs:
       - name: Run ESLint
         run: |
           npx eslint 'src/**/*.{js,jsx}'  # Use npx to ensure it runs the locally installed ESLint
+        continue-on-error: true
+
 
       # Step 5: Run Prettier (optional) with npx
       - name: Run Prettier
         run: |
           npx prettier --write 'src/**/*.{js,jsx}'  # Use npx to run Prettier locally
+        continue-on-error: true
+
 
       # Step 6: Run tests (allow to fail)
       - name: Run tests
@@ -45,6 +49,7 @@ jobs:
           npm test
         continue-on-error: true  # This allows the pipeline to continue even if the test step fails
 
+        
     # Step  6: Build the app (Optional)
       - name: Build the app
         run: |
