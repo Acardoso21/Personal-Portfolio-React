@@ -1,21 +1,32 @@
-name: Dependency Review
+name: PR Auto Review
 
 on:
   pull_request:
     branches-ignore:
-      - master
+      - master  # Ignore PRs targeting the master branch
 
+  
 permissions:
   contents: read
-  pull-requests: write
+  pull-requests: write  # Permissions to write comments on PRs
 
 jobs:
   dependency-review:
     runs-on: ubuntu-latest
+
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      # Step 2: Run Dependency Review
       - name: Dependency Review
         uses: actions/dependency-review-action@v4
         with:
-          comment-summary-in-pr: always
+          comment-summary-in-pr: always  # Always include a summary comment in the PR
+          
+      # Step 3: Check if dependencies have changed
+      - name: Check for Dependency Changes
+        id: check_dependency_changes
+        run: #|
+            #something should probably go here
