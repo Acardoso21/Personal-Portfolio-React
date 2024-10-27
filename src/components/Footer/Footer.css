@@ -1,19 +1,26 @@
+/* Footer Styles */
 .footer {
   background-color: #333;
   color: #bfbfbf;
-  padding: 2rem 4%; /* Adjust padding for different screen sizes */
+  padding: 2rem 4%;
   text-align: center;
   position: relative;
   bottom: 0;
   width: 100%;
+  box-sizing: border-box;
 }
 
+/* Center all footer content */
 .footer-content {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
+/* Footer paragraph text */
 .footer p {
   font-size: clamp(1rem, 2vw, 1.2rem); /* Responsive font size */
   line-height: 1.6;
@@ -22,6 +29,7 @@
   color: #bfbfbf;
 }
 
+/* Center social links */
 .social-links {
   list-style: none;
   padding: 0;
@@ -35,6 +43,7 @@
   display: inline-block;
 }
 
+/* Contact link styling */
 .contact-link {
   color: #bfbfbf;
   font-size: clamp(1rem, 2vw, 1.5rem); /* Responsive link size */
@@ -49,6 +58,7 @@
   color: #ff7f50; /* Hover effect */
 }
 
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .footer-content {
     padding: 1rem 10px; /* Adjust padding for smaller screens */

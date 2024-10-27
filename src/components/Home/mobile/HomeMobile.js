@@ -32,7 +32,7 @@ function HomeMobile() {
             I'm a Computer Engineering student with a passion for software development and a knack for quickly learning new technologies.
           </p>
           <p>
-            Experienced in Python, C++, and Java, with hands-on experience at <strong>Cisco</strong>.
+            Experienced in Python, C++, and Java, with hands-on experience at Cisco.
           </p>
           <p>
             Fluent in English, Portuguese, and Spanish.
