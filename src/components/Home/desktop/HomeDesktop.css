@@ -145,6 +145,7 @@
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
+    /* max-width: 90%; */
     width: 65%; /* Adjust as needed */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -217,7 +218,7 @@
     }
   
     .featured-project {
-      width: 100%; /* Full width in stacked layout */
+      width: 95%; /* Full width in stacked layout */
       margin-bottom: 20px; /* Space between stacked elements */
     }
   
